@@ -8,15 +8,18 @@ namespace MuhinAlexandrYurevichKT_31_20.Database
     {
         DbSet<Student> Students { get; set; }
         DbSet<Group> Groups { get; set; }
+        DbSet<Otsenka> Otsenka { get; set; }
+        DbSet<Subject> Subject { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Конфигурации к таблицам
             modelBuilder.ApplyConfiguration(new StudentConfiguration());
             modelBuilder.ApplyConfiguration(new GroupConfiguration());
-
+            modelBuilder.ApplyConfiguration(new OtsenkaConfiguration());
+            modelBuilder.ApplyConfiguration(new SubjectConfiguration());
         }
-
+        
         public MuhinDbContext(DbContextOptions<MuhinDbContext> options) : base(options)
         {
         }
